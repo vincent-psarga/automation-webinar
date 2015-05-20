@@ -193,6 +193,12 @@ output_directory = './'
 				</section>
 
 				<section>
+					<h2>Roadmap to CI integration</h2>
+					<svg id="roadmap6" height="500" width="800">
+					</svg>
+				</section>
+
+				<section>
 					<h2>Update CI build config</h2>
 					<p>Install hiptest-publisher on CI slave</p>
 					<p>Fetch tests before results</p>
@@ -208,7 +214,7 @@ output_directory = './'
 
 				<section>
 					<h2>Start again</h2>
-					<svg id="roadmap6" height="500" width="800">
+					<svg id="roadmap7" height="500" width="800">
 				</section>
 			</div>
 		</div>
@@ -227,6 +233,7 @@ output_directory = './'
 				progress: true,
 				history: true,
 				center: true,
+				slideNumber: 'c / t',
 
 				transition: 'fade', // none/fade/slide/convex/concave/zoom
 
@@ -247,11 +254,11 @@ output_directory = './'
 					cx: 400,
 					cy: 250,
 					radius: 180,
-					labelRadius: 180,
+					labelRadius: 200,
 					labels: [
 						'Create scenario',
 						'Pull code',
-						'Implement actionwords',
+						'Implement \n actionwords',
 						'Add scenario to test run',
 						'Let CI push results'
 					],
@@ -264,7 +271,8 @@ output_directory = './'
 					extend({containerId: 'roadmap3', colors: [fc[0], c[1], fc[2], fc[3], fc[4]]}, circleArrowOptions),
 					extend({containerId: 'roadmap4', colors: [fc[0], fc[1], c[2], fc[3], fc[4]]}, circleArrowOptions),
 					extend({containerId: 'roadmap5', colors: [fc[0], fc[1], fc[2], c[3], fc[4]]}, circleArrowOptions),
-					extend({containerId: 'roadmap6', colors: [fc[0], fc[1], fc[2], fc[3], c[4]]}, circleArrowOptions)
+					extend({containerId: 'roadmap6', colors: [fc[0], fc[1], fc[2], fc[3], c[4]]}, circleArrowOptions),
+					extend({containerId: 'roadmap7', colors: c}, circleArrowOptions)
 				];
 
 			roadmaps.forEach(function (opts) {
