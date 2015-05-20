@@ -1,0 +1,15 @@
+ul.summary {}
+
+ul.summary-hl li {
+  color: #727272;
+}
+
+ul.summary-hl li.current {
+  color: #FFF;
+}
+
+svg text {
+  fill: #FFF;
+  stroke: #222222;
+  font-size: 80%;
+}
