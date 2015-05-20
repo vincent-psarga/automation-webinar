@@ -47,17 +47,6 @@
 				</section>
 
 				<section>
-					<h2>Summary</h2>
-					<ul class="summary">
-						<li>Sample presentation</li>
-						<li>Roadmap to CI integration</li>
-						<li>Project structure</li>
-						<li>Getting first tests running</li>
-						<li>Integration with a CI process</li>
-					</ul>
-				</section>
-
-				<section>
 					<h2>Sample presentation</h2>
 					<section>
 						<p>Not a vanilla example</p>
@@ -72,19 +61,14 @@
 
 				<section>
 					<h2>Roadmap to CI integration</h2>
-					<svg id="roadmap1" height="400" width="800">
+					<svg id="roadmap1" height="500" width="800">
 					</svg>
 				</section>
 
 				<section>
-					<h2>Summary</h2>
-					<ul class="summary summary-hl">
-						<li>Sample presentation</li>
-						<li>Roadmap to CI integration</li>
-						<li class="current">Project structure</li>
-						<li>Getting first tests running</li>
-						<li>Integration with a CI process</li>
-					</ul>
+					<h2>Roadmap to CI integration</h2>
+					<svg id="roadmap2" height="500" width="800">
+					</svg>
 				</section>
 
 				<section>
@@ -126,14 +110,9 @@ end
 				</section>
 
 				<section>
-					<h2>Summary</h2>
-					<ul class="summary summary-hl">
-						<li>Sample presentation</li>
-						<li>Roadmap to CI integration</li>
-						<li>Project structure</li>
-						<li class="current">Getting first tests running</li>
-						<li>Integration with a CI process</li>
-					</ul>
+					<h2>Roadmap to CI integration</h2>
+					<svg id="roadmap3" height="500" width="800">
+					</svg>
 				</section>
 
 				<section>
@@ -147,6 +126,95 @@ end
 > gem install hiptest-publisher
 > hiptest-publisher --token=123456 --language=javascript
 					</code></pre>
+				</section>
+
+				<section>
+					<h2>Getting a configuration file</h2>
+					<section>
+						<img src="images/configuration-file.png" alt="Links to download config" />
+					</section>
+
+					<section>
+						<pre><code>
+token = '123456789'
+language=javascript
+framework=jasmine
+output_directory = './'
+						</code></pre>
+					</section>
+
+					<section>
+						<p>Do not forget to store that in Git/SVN</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Roadmap to CI integration</h2>
+					<svg id="roadmap4" height="500" width="800">
+					</svg>
+				</section>
+
+				<section>
+					<h2>Fetching the code</h2>
+					<section>
+						<img src="images/hiptest-publisher.png" alt="Running hiptest publisher" />
+					</section>
+					<section>
+						<img src="images/generated-tests.png" alt="The generated tests" />
+					</section>
+					<section>
+						<img src="images/generated-actionwords.png" alt="The generated actionwords" />
+					</section>
+				</section>
+
+				<section>
+					<h2>Roadmap to CI integration</h2>
+					<svg id="roadmap5" height="500" width="800">
+					</svg>
+				</section>
+
+				<section>
+					<h2>Implementing the action words</h2>
+					<section>
+						<p>Well, that's your job ;)</p>
+					</section>
+					<section>
+						<img src="images/implemented-actionwords.png" alt="The actionwords implemented" />
+					</section>
+					<section>
+						<p>And again, keep it in Git/SVN</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Roadmap to CI integration</h2>
+					<svg id="roadmap6" height="500" width="800">
+					</svg>
+				</section>
+
+				<section>
+					<h2>Configuring for CI</h2>
+					<p>Create a dedicated test run</p>
+					<img src="images/ci-test-run.png" alt="Creating a new test run" />
+				</section>
+
+				<section>
+					<h2>Update CI build config</h2>
+					<p>Install hiptest-publisher on CI slave</p>
+					<p>Fetch tests before results</p>
+					<pre><code>hiptest-publisher -c hiptest-publisher.config --tests-only --test-run-id=3054</code></pre>
+					<p>Push results after execution</p>
+					<pre><code>hiptest-publisher -c hiptest-publisher.config -p results.xml</code></pre>
+				</section>
+
+				<section>
+					<h2>Observe the results in the test run</h2>
+					<img src="images/test-results.png" alt="CI results are now in Hiptest" />
+				</section>
+
+				<section>
+					<h2>Start again</h2>
+					<svg id="roadmap8" height="500" width="800">
 				</section>
 			</div>
 		</div>
@@ -178,23 +246,25 @@ end
 				]
 			});
 
-			circleArrow.addCircleArrow({
-				containerId: 'roadmap1',
-				cx: 400,
-				cy: 200,
-				radius: 180,
-				labelRadius: 180,
-				colors: ['red', 'green', 'blue', 'orange', 'purple'],
-				labels: [
-					'Create scenario',
-					'Pull code',
-					'Implement actionwords',
-					'Add scenario to test run',
-					'Let CI push results'
-				],
-				arrowWidth: 40,
-				background: '#222222'				
-			})
+			for (var i = 1; i < 9; i++) {
+				circleArrow.addCircleArrow({
+					containerId: 'roadmap' + i,
+					cx: 400,
+					cy: 250,
+					radius: 180,
+					labelRadius: 180,
+					colors: ['red', 'blue', 'green', 'orange', 'purple'],
+					labels: [
+						'Create scenario',
+						'Pull code',
+						'Implement actionwords',
+						'Add scenario to test run',
+						'Let CI push results'
+					],
+					arrowWidth: 40,
+					background: '#222222'				
+				});
+			}
 		</script>
 
 	</body>
