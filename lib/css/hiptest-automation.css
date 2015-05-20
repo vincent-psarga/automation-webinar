@@ -12,4 +12,29 @@ svg text {
   fill: #FFF;
   stroke: #222222;
   font-size: 80%;
+  opacity: 0.25;
+}
+
+svg#roadmap1 > text {
+  opacity: 1;
+}
+
+svg#roadmap2 text.arrow-0 {
+  opacity: 1;
+}
+
+svg#roadmap3 text.arrow-1 {
+  opacity: 1;
+}
+
+svg#roadmap4 text.arrow-2 {
+  opacity: 1;
+}
+
+svg#roadmap5 text.arrow-3 {
+  opacity: 1;
+}
+
+svg#roadmap6 text.arrow-4 {
+  opacity: 1;
 }

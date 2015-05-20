@@ -149,12 +149,6 @@ output_directory = './'
 				</section>
 
 				<section>
-					<h2>Roadmap to CI integration</h2>
-					<svg id="roadmap4" height="500" width="800">
-					</svg>
-				</section>
-
-				<section>
 					<h2>Fetching the code</h2>
 					<section>
 						<img src="images/hiptest-publisher.png" alt="Running hiptest publisher" />
@@ -169,7 +163,7 @@ output_directory = './'
 
 				<section>
 					<h2>Roadmap to CI integration</h2>
-					<svg id="roadmap5" height="500" width="800">
+					<svg id="roadmap4" height="500" width="800">
 					</svg>
 				</section>
 
@@ -188,7 +182,7 @@ output_directory = './'
 
 				<section>
 					<h2>Roadmap to CI integration</h2>
-					<svg id="roadmap6" height="500" width="800">
+					<svg id="roadmap5" height="500" width="800">
 					</svg>
 				</section>
 
@@ -214,11 +208,12 @@ output_directory = './'
 
 				<section>
 					<h2>Start again</h2>
-					<svg id="roadmap8" height="500" width="800">
+					<svg id="roadmap6" height="500" width="800">
 				</section>
 			</div>
 		</div>
 
+		<script src="lib/js/utils.js"></script>
 		<script src="lib/js/head.min.js"></script>
 		<script src="lib/js/circle-arrow.js"></script>
 		<script src="js/reveal.js"></script>
@@ -233,7 +228,7 @@ output_directory = './'
 				history: true,
 				center: true,
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				transition: 'fade', // none/fade/slide/convex/concave/zoom
 
 				// Optional reveal.js plugins
 				dependencies: [
@@ -246,14 +241,13 @@ output_directory = './'
 				]
 			});
 
-			for (var i = 1; i < 9; i++) {
-				circleArrow.addCircleArrow({
-					containerId: 'roadmap' + i,
+			var c = ['#FFDE05', '#E84B0C', '#BF00FF', '#0C88E8', '#00FF17'],
+				fc = c.map(function (color) {return blendColors(color, '#222222', 0.90); }),
+				circleArrowOptions = {
 					cx: 400,
 					cy: 250,
 					radius: 180,
 					labelRadius: 180,
-					colors: ['red', 'blue', 'green', 'orange', 'purple'],
 					labels: [
 						'Create scenario',
 						'Pull code',
@@ -262,9 +256,20 @@ output_directory = './'
 						'Let CI push results'
 					],
 					arrowWidth: 40,
-					background: '#222222'				
-				});
-			}
+					background: '#222222'
+				},
+				roadmaps = [
+					extend({containerId: 'roadmap1', colors: c}, circleArrowOptions),
+					extend({containerId: 'roadmap2', colors: [c[0], fc[1], fc[2], fc[3], fc[4]]}, circleArrowOptions),
+					extend({containerId: 'roadmap3', colors: [fc[0], c[1], fc[2], fc[3], fc[4]]}, circleArrowOptions),
+					extend({containerId: 'roadmap4', colors: [fc[0], fc[1], c[2], fc[3], fc[4]]}, circleArrowOptions),
+					extend({containerId: 'roadmap5', colors: [fc[0], fc[1], fc[2], c[3], fc[4]]}, circleArrowOptions),
+					extend({containerId: 'roadmap6', colors: [fc[0], fc[1], fc[2], fc[3], c[4]]}, circleArrowOptions)
+				];
+
+			roadmaps.forEach(function (opts) {
+				circleArrow.addCircleArrow(opts);
+			});
 		</script>
 
 	</body>
