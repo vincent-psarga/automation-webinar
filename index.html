@@ -51,7 +51,7 @@
 					<section>
 						<p>Not a vanilla example</p>
 						<p>Real life use-case</p>
-						<p>30 tests and  action word</p>
+						<p>About 200 tests and action words</p>
 						<p>More than 600 CI builds</p>
 					</section>
 					<section>
@@ -248,31 +248,60 @@ output_directory = './'
 				]
 			});
 
-			var c = ['#FFDE05', '#E84B0C', '#BF00FF', '#0C88E8', '#00FF17'],
-				fc = c.map(function (color) {return blendColors(color, '#222222', 0.90); }),
-				circleArrowOptions = {
+			var baseColors = ['#FFDE05', '#E84B0C', '#BF00FF', '#0C88E8', '#00FF17'],
+				fadedColors = baseColors.map(function (color) {return blendColors(color, '#222222', 0.80); });
+
+			function makeArrowsConfig(containerId, colors) {
+				console.log(colors[0], colors[0] || 'plop')
+
+				return circleArrowOptions = {
+					containerId: containerId,
 					cx: 400,
 					cy: 250,
 					radius: 180,
 					labelRadius: 200,
-					labels: [
-						'Create scenario',
-						'Pull code',
-						'Implement \n actionwords',
-						'Add scenario to test run',
-						'Let CI push results'
+					arrows: [
+						{
+							color: colors[0] || fadedColors[0],
+							label: 'Create scenario',
+							labelx: -220
+						},
+						{
+							color: colors[1] || fadedColors[1],
+							label: 'Pull code',
+							labelx: 20,
+							labely: -10
+						},
+						{
+							color: colors[2] || fadedColors[2],
+							label: 'Implement',
+							labelx: 20
+						},
+						{
+							color: colors[3] || fadedColors[3],
+							label: 'Add scenario to test run',
+							labely: 30
+						},
+						{
+							color: colors[4] || fadedColors[4],
+							label: 'Let CI push results',
+							labelx: -220,
+							labely: 40
+						}
 					],
 					arrowWidth: 40,
 					background: '#222222'
-				},
-				roadmaps = [
-					extend({containerId: 'roadmap1', colors: c}, circleArrowOptions),
-					extend({containerId: 'roadmap2', colors: [c[0], fc[1], fc[2], fc[3], fc[4]]}, circleArrowOptions),
-					extend({containerId: 'roadmap3', colors: [fc[0], c[1], fc[2], fc[3], fc[4]]}, circleArrowOptions),
-					extend({containerId: 'roadmap4', colors: [fc[0], fc[1], c[2], fc[3], fc[4]]}, circleArrowOptions),
-					extend({containerId: 'roadmap5', colors: [fc[0], fc[1], fc[2], c[3], fc[4]]}, circleArrowOptions),
-					extend({containerId: 'roadmap6', colors: [fc[0], fc[1], fc[2], fc[3], c[4]]}, circleArrowOptions),
-					extend({containerId: 'roadmap7', colors: c}, circleArrowOptions)
+				}
+			}
+
+			var roadmaps = [
+					makeArrowsConfig('roadmap1', baseColors),
+					makeArrowsConfig('roadmap2', [baseColors[0]]),
+					makeArrowsConfig('roadmap3', [null, baseColors[1]]),
+					makeArrowsConfig('roadmap4', [null, null, baseColors[2]]),
+					makeArrowsConfig('roadmap5', [null, null, null, baseColors[3]]),
+					makeArrowsConfig('roadmap6', [null, null, null, null, baseColors[4]]),
+					makeArrowsConfig('roadmap7', baseColors)
 				];
 
 			roadmaps.forEach(function (opts) {
