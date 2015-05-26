@@ -1,4 +1,6 @@
-ul.summary {}
+ul.summary, ul.summary-hl {
+  list-style-type: none;
+}
 
 ul.summary-hl li {
   color: #727272;

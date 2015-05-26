@@ -46,6 +46,66 @@
 					<h1>Hiptest &amp; automation</h1>
 				</section>
 
+				<section data-transition="fade-out">
+					<ul class="summary">
+						<li>Basics about Hiptest</li>
+						<li>5 steps for a successful automatisation</li>
+						<li>Demo</li>
+					</ul>
+				</section>
+
+				<section data-transition="fade-in">
+					<ul class="summary-hl">
+						<li class="current">Basics about Hiptest</li>
+						<li>5 steps for a successful automatisation</li>
+						<li>Demo</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h2>What's Hiptest ?</h2>
+					</section>
+					
+					<section>
+						<p>Test management in the cloud</p>
+					</section>
+
+					<section>
+						<p>BDD framework</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>What we believe in</h2>
+					
+					<p><a href="http://hiptest.github.io/ourphilosophy.html">BDD</a></p>
+					<p><a href="http://hiptest.github.io/refactoring.html">Refactoring</a></p>
+					<p><a href="http://hiptest.github.io/publisher.html">Continuous integration</a></p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Our philosophy for automation</h2>
+					</section>
+
+					<section>
+						<p>Developers and testers working together</p>
+					</section>
+
+					<section>
+						<p>Good design lead to good automation</p>
+					</section>
+
+					<section>
+						<p>Action words defines your DSL</p>
+					</section>
+
+					<section>
+						<p>Action words are implemented and stored with the application code</p>
+					</section>
+				</section>
+
 				<section>
 					<h2>Sample presentation</h2>
 					<section>
@@ -57,6 +117,14 @@
 					<section>
 						<img src="images/hiptest-home.png" alt="Hiptest" />
 					</section>
+				</section>
+
+				<section>
+					<ul class="summary-hl">
+						<li>Basics about Hiptest</li>
+						<li class="current">5 steps for a successful automatisation</li>
+						<li>Demo</li>
+					</ul>
 				</section>
 
 				<section data-transition="fade-out">
@@ -116,8 +184,15 @@ end
 				</section>
 
 				<section>
-					<h2>Using hiptest-publisher as a service</h2>
-					<img src="images/hp-aas.png" alt="Hiptest publisher as a service" />
+					<section>
+						<h2>Using hiptest-publisher as a service</h2>
+
+						<img src="images/hp-aas.png" alt="Hiptest publisher as a service" />
+					</section>
+
+					<section>
+						<video controls="controls" src="videos/hiptest-service.mp4" />
+					</section>
 				</section>
 
 				<section>
@@ -129,8 +204,8 @@ end
 				</section>
 
 				<section>
-					<h2>Getting a configuration file</h2>
 					<section>
+						<h2>Getting a configuration file</h2>
 						<img src="images/configuration-file.png" alt="Links to download config" />
 					</section>
 
@@ -149,10 +224,16 @@ output_directory = './'
 				</section>
 
 				<section>
-					<h2>Fetching the code</h2>
 					<section>
+						<h2>Fetching the code</h2>
+
 						<img src="images/hiptest-publisher.png" alt="Running hiptest publisher" />
 					</section>
+
+					<section>
+						<video controls="controls" src="videos/hiptest-command-line.mp4" />
+					</section>
+
 					<section>
 						<img src="images/generated-tests.png" alt="The generated tests" />
 					</section>
@@ -193,6 +274,11 @@ output_directory = './'
 				</section>
 
 				<section>
+					<h2>Add the scenario to the test run</h2>
+					<img src="images/add-to-tr.png" alt="Adding the scenario to the test run" />
+				</section>
+
+				<section>
 					<h2>Roadmap to CI integration</h2>
 					<svg id="roadmap6" height="500" width="800">
 					</svg>
@@ -200,11 +286,22 @@ output_directory = './'
 
 				<section>
 					<h2>Update CI build config</h2>
-					<p>Install hiptest-publisher on CI slave</p>
-					<p>Fetch tests before results</p>
-					<pre><code>hiptest-publisher -c hiptest-publisher.config --tests-only --test-run-id=3054</code></pre>
-					<p>Push results after execution</p>
-					<pre><code>hiptest-publisher -c hiptest-publisher.config -p results.xml</code></pre>
+
+					<section>
+						<p>Install hiptest-publisher on CI slave</p>
+						<pre><code class="bash">gem install hiptest-publisher</pre></code>
+					</section>
+
+					<section>
+						<p>Fetch tests before execution</p>
+						<pre><code class="bash">hiptest-publisher --tests-only --test-run-id=3054
+   -c hiptest-publisher.config </code></pre>
+					</section>
+
+					<section>
+						<p>Push results after execution</p>
+						<pre><code class="bash">hiptest-publisher -c hiptest-publisher.config -p results.xml</code></pre>
+					</section>
 				</section>
 
 				<section>
@@ -215,6 +312,14 @@ output_directory = './'
 				<section>
 					<h2>Start again</h2>
 					<svg id="roadmap7" height="500" width="800">
+				</section>
+
+				<section>
+					<ul class="summary-hl">
+						<li>Basics about Hiptest</li>
+						<li>5 steps for a successful automatisation</li>
+						<li class="current">Demo</li>
+					</ul>
 				</section>
 			</div>
 		</div>
@@ -263,30 +368,31 @@ output_directory = './'
 					arrows: [
 						{
 							color: colors[0] || fadedColors[0],
-							label: 'Create scenario',
-							labelx: -220
+							label: '1 - Create scenario',
+							labelx: -230,
+							labely: -30
 						},
 						{
 							color: colors[1] || fadedColors[1],
-							label: 'Pull code',
+							label: '2 - Pull code',
 							labelx: 20,
 							labely: -10
 						},
 						{
 							color: colors[2] || fadedColors[2],
-							label: 'Implement',
+							label: '3 - Implement',
 							labelx: 20
 						},
 						{
 							color: colors[3] || fadedColors[3],
-							label: 'Add scenario to test run',
+							label: '4 - Add scenario to test run',
 							labely: 40
 						},
 						{
 							color: colors[4] || fadedColors[4],
-							label: 'Let CI push results',
+							label: '5 - Let CI push results',
 							labelx: -220,
-							labely: 50
+							labely: 90
 						}
 					],
 					arrowWidth: 50,
